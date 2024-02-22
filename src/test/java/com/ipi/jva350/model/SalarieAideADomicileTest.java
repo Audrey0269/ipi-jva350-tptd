@@ -1,11 +1,20 @@
 package com.ipi.jva350.model;
 
+import com.ipi.jva350.exception.SalarieException;
+import com.ipi.jva350.repository.SalarieAideADomicileRepository;
+import com.ipi.jva350.service.SalarieAideADomicileService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.mockito.ArgumentCaptor;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
 
 
 public class SalarieAideADomicileTest {
@@ -66,31 +75,49 @@ public class SalarieAideADomicileTest {
         Assertions.assertEquals(true,res, "le jour doit se situer apres la date début");
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //______________TEST UNITAIRE - PARAMETRE______________
+    //TEST NON PARAMETRE
     @Test
-    public void testCalculeJoursDeCongeDecomptesPourPlage(LocalDate dateDebut, LocalDate dateFin, Boolean expected){
-         //Given, When, Then
-        SalarieAideADomicile monSalarie = new SalarieAideADomicile();
-
-        Assertions.assertEquals(expected, monSalarie.calculeJoursDeCongeDecomptesPourPlage(dateDebut,dateFin));
+    public void testNonParamCalculeJoursDeCongeDecomptesPourPlage(){
+        //Given
+        SalarieAideADomicile monSalarie = new SalarieAideADomicile(
+                "Léa",
+                LocalDate.of(2023,6,28),
+                LocalDate.now(),
+                20,
+                5,
+                120,
+                15,
+                8);
+        //When
+        LinkedHashSet<LocalDate> res = monSalarie.calculeJoursDeCongeDecomptesPourPlage(LocalDate.of(2023,12,17), LocalDate.of(2023,12,28));
+        //Then
+        Assertions.assertEquals(9, res.size());
     }
 
+    //TEST PARAMETRE
+    @ParameterizedTest
+    @CsvSource({
+            "'2023-12-17', '2023-12-28', 9",
+            "'2023-12-17', '2024-01-08', 17"
+    })
+    void testCalculeJoursDeCongeDecomptesPourPlage(String dateDebut, String dateFin, int exceptedNb){
+        //Given
+        SalarieAideADomicile monSalarie = new SalarieAideADomicile(
+                "Léa",
+                LocalDate.of(2023,6,28),
+                LocalDate.now(),
+                20,
+                5,
+                120,
+                15,
+                8);
+        //When
+        LinkedHashSet<LocalDate> resNb = monSalarie.calculeJoursDeCongeDecomptesPourPlage(
+                LocalDate.parse(dateDebut),
+                LocalDate.parse(dateFin));
+        //Then
+        Assertions.assertEquals(exceptedNb, resNb.size());
+    }
 
-
-    //______________TEST UNITAIRE - MOCKS______________
 }

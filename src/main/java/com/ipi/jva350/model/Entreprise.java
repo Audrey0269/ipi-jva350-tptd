@@ -83,9 +83,14 @@ public final class Entreprise {
         return false;
     }
 
+
+    //Ajout du cas pour le mois de janvier (01) qui n'est sinon jamais pris en compte dans la méthode.
     public static double proportionPondereeDuMois(LocalDate moisDuConge) {
         int proportionPonderee = 8;
         int mois = 1 + (moisDuConge.getMonthValue() + 6) % 12;
+        if (mois >= 1) {
+            proportionPonderee += 20;
+        }
         if (mois >= 2) {
             proportionPonderee += 20;
         }
@@ -122,12 +127,16 @@ public final class Entreprise {
         return proportionPonderee / 12d / 10d;
     }
 
-
+    //Erreur dans la méthode :
+    //Initialement :  : d.getMonthValue() > 5 ? LocalDate.of(d.getMonthValue(), 6, 1)
+    //Cela renvoie une date comme celle la ; 0006/6/1 car prise en compte du mois plutot que de l'année
     public static LocalDate getPremierJourAnneeDeConges(LocalDate d) {
         return d == null ? null
                 : d.getMonthValue() > 5 ? LocalDate.of(d.getMonthValue(), 6, 1)
                 : LocalDate.of(d.getYear() - 1, 6, 1);
     }
+
+    //"'2024-01-02', '2023-06-01'"
 
     public static boolean estJourFerie(LocalDate jour) {
         int monEntier = (int) Entreprise.joursFeries(jour).stream().filter(d ->
@@ -146,9 +155,16 @@ public final class Entreprise {
      * @param fin date de fin de la plage
      * @return
      */
+    //Dans cette méthode le fait d'avoir un throw renvoie une erreur lors des tests lorsque le résultat est sur false (quand la date se situe en dehors de la tranche)
+    //J'ai donc rajouté un "return false" (en commentaire) qui permet de ne pas lever d'exception lors des tests (plutot que d'utiliser throw).
     public static boolean estDansPlage(LocalDate d, LocalDate debut, LocalDate fin) {
         // à implémenter en TDD !
-        throw new RuntimeException("à implémenter en TDD !");
+        if (d.isAfter(debut) && d.isBefore(fin) || d.isEqual(debut) || d.isEqual(fin)) {
+            return true;
+        }
+        //return false;
+        throw new RuntimeException("La date ne se situe pas dans la plage");
     }
+
 
 }
