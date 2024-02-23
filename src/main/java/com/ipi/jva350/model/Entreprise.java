@@ -116,14 +116,14 @@ public final class Entreprise {
         return proportionPonderee / 12d / 10d;
     }
 
-    //Erreur dans la méthode :
+    //Erreur dans la méthode initial :
     //Initialement :  : d.getMonthValue() > 5 ? LocalDate.of(d.getMonthValue(), 6, 1)
-    //Cela renvoie une date comme celle la ; 0006/6/1 car prise en compte du mois plutot que de l'année
+    //Cela renvoie une date comme celle-ci ; 0006/6/1 car prise en compte du mois plutot que de l'année
     //Solution : remplacer le getMonthValue() par getYear().
     public static LocalDate getPremierJourAnneeDeConges(LocalDate d) {
-        LocalDate firstDayOfJuneCurrentYear = LocalDate.of(d.getYear(), 6, 1);
-        LocalDate firstDayOfJunePreviousYear = LocalDate.of(d.getYear() - 1, 6, 1);
-        LocalDate result = d.getMonthValue() > 5 ? firstDayOfJuneCurrentYear : firstDayOfJunePreviousYear;
+        LocalDate debutAnnee = LocalDate.of(d.getYear(), 6, 1);
+        LocalDate finAnnee = LocalDate.of(d.getYear() - 1, 6, 1);
+        LocalDate result = d.getMonthValue() > 5 ? debutAnnee : finAnnee;
         return result;
     }
 
