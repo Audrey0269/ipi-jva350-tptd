@@ -162,8 +162,8 @@ public final class Entreprise {
         if (d.isAfter(debut) && d.isBefore(fin) || d.isEqual(debut) || d.isEqual(fin)) {
             return true;
         }
-        //return false;
-        throw new RuntimeException("La date ne se situe pas dans la plage");
+        return false;
+        //throw new RuntimeException("La date ne se situe pas dans la plage");
     }
 
 
