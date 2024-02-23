@@ -52,5 +52,10 @@ Résolution => Simplifier la méthode suivante :
     }
 
 6 - Make this "public static CONGES_PAYES_ACQUIS_PAR_MOIS" field final
-Résolution => modification en : " public static final float CONGES_PAYES_ACQUIS_PAR_MOIS = 2.5f;" (model/salarieAideADomicil)
-et suppression de l'ancienne : public static float CONGES_PAYES_ACQUIS_PAR_MOIS = 2.5f;
+Résolution => modification de : public static float CONGES_PAYES_ACQUIS_PAR_MOIS = 2.5f; (model/salarieAideADomicil)
+en ===> public static final float CONGES_PAYES_ACQUIS_PAR_MOIS = 2.5f;
+
+
+7 - Make this "public static joursHabituellementTravailles" field final
+Résolution => modification de : public static List<DayOfWeek> joursHabituellementTravailles = new ArrayList<DayOfWeek>(); (model/SalarieAideAD)
+en ===> public static final List<DayOfWeek> joursHabituellementTravailles = new ArrayList<DayOfWeek>();
