@@ -70,3 +70,17 @@ Cela signifie que l'on a 8 paramètres dans le constructeur alors que la limite 
 10 - This block of commented-out lines of code should be removed
 Résolution => suppression d'un commentaire dans la méthode : model/SalarieAideADomicile
 Commentaire supprimé : //this.congesPayesPris = congesPayesPris;
+
+11 - This block of commented-out lines of code should be removed.
+Résolution => suppression de commentaire dans model/SalarieAideAD :
+Ligne 78 :
+   /*
+    public double getCongesPayesRestantAnneeNMoins1() {
+        return congesPayesRestantAnneeNMoins1;
+    }
+
+    public void setCongesPayesRestantAnneeNMoins1(double congesPayesRestantAnneeNMoins1) {
+        this.congesPayesRestantAnneeNMoins1 = congesPayesRestantAnneeNMoins1;
+    }
+    */
+
