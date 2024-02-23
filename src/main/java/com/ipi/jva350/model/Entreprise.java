@@ -68,6 +68,7 @@ public final class Entreprise {
         );
     }
 
+     /*
     public static boolean bissextile(int y) {
         String tmp = String.valueOf(y);
         if (tmp.charAt(2) == '1' || tmp.charAt(2) == '3' || tmp.charAt(2) == 5 || tmp.charAt(2) == '7' || tmp.charAt(2) == '9') {
@@ -82,6 +83,14 @@ public final class Entreprise {
         }
         return false;
     }
+    */
+
+    public static boolean bissextile(int y)
+    {
+        String tmp = String.valueOf(y);
+        return (y % 4 == 0 && (y % 100 != 0 || y % 400 == 0));
+    }
+
 
 
     //Ajout du cas pour le mois de janvier (01) qui n'est sinon jamais pris en compte dans la méthode.
