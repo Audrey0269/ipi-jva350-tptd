@@ -32,3 +32,8 @@ Résolution => Simplifier la méthode suivante (model/Entreprise > getPremierJou
 
 3 Bis - Immediately return this expression instead of assigning it to the temporary variable "result"
 Résolution => simplifier d'avantage la méthode précédente.
+
+
+4 - Use the opposite operator ("<=") instead.
+Résolution => modification de la méthode "estJourFerie" (model/entreprise)
+if (test != 0 && !(monEntier > 1)) {  ===>DEVIENT====>  if (test != 0 && (monEntier <= 1)) {
