@@ -62,3 +62,11 @@ en ===> public static final List<DayOfWeek> joursHabituellementTravailles = new 
 
 8 - Make this member "protected". (model/salarieAideADomicil)
 Résolution => passer la méthode en protected : protected static final List<DayOfWeek> joursHabituellementTravailles = new ArrayList<DayOfWeek>();
+
+9 - Constructor has 8 parameters, which is greater than 7 authorized.
+Cela signifie que l'on a 8 paramètres dans le constructeur alors que la limite autorisé est à 7.
+***NON RESOLU*** (il faudrait augmenter la taille limite ou enlever un paramètre).
+
+10 - This block of commented-out lines of code should be removed
+Résolution => suppression d'un commentaire dans la méthode : model/SalarieAideADomicile
+Commentaire supprimé : //this.congesPayesPris = congesPayesPris;

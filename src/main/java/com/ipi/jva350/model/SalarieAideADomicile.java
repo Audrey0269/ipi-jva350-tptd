@@ -59,7 +59,6 @@ public class SalarieAideADomicile {
         this.congesPayesPrisAnneeNMoins1 = congesPayesPrisAnneeNMoins1;
         this.joursTravaillesAnneeN = joursTravaillesAnneeN;
         this.congesPayesAcquisAnneeN = congesPayesAcquisAnneeN;
-        //this.congesPayesPris = congesPayesPris;
     }
 
     /**
