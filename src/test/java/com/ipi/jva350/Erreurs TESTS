@@ -59,3 +59,6 @@ en ===> public static final float CONGES_PAYES_ACQUIS_PAR_MOIS = 2.5f;
 7 - Make this "public static joursHabituellementTravailles" field final
 Résolution => modification de : public static List<DayOfWeek> joursHabituellementTravailles = new ArrayList<DayOfWeek>(); (model/SalarieAideAD)
 en ===> public static final List<DayOfWeek> joursHabituellementTravailles = new ArrayList<DayOfWeek>();
+
+8 - Make this member "protected". (model/salarieAideADomicil)
+Résolution => passer la méthode en protected : protected static final List<DayOfWeek> joursHabituellementTravailles = new ArrayList<DayOfWeek>();
