@@ -84,3 +84,5 @@ Ligne 78 :
     }
     */
 
+12 - Use isEmpty() to check whether the collection is empty or not (SalarieAideADService : méthode ajouteConge)
+Résolution => if (joursDecomptes.size()) {   ===REMPLACER PAR===> if (joursDecomptes.isEmpty()) {
