@@ -120,7 +120,7 @@ public final class Entreprise {
     //Initialement :  : d.getMonthValue() > 5 ? LocalDate.of(d.getMonthValue(), 6, 1)
     //Cela renvoie une date comme celle-ci ; 0006/6/1 car prise en compte du mois plutot que de l'année
     //Solution : remplacer le getMonthValue() par getYear().
-    public static LocalDate getPremierJourAnnéeDeConges(LocalDate d) {
+    public static LocalDate getPremierJourAnneeDeConges(LocalDate d) {
         return d.getMonthValue() > 5 ? LocalDate.of(d.getYear(), 6, 1) : LocalDate.of(d.getYear() - 1, 6, 1);
     }
 

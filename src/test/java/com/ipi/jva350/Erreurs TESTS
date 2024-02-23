@@ -30,4 +30,5 @@ Résolution => Simplifier la méthode suivante (model/Entreprise > getPremierJou
           : d.getMonthValue() > 5 ? LocalDate.of(d.getYear(), 6, 1)
           : LocalDate.of(d.getYear() - 1, 6, 1);
 
-4 -
+3 Bis - Immediately return this expression instead of assigning it to the temporary variable "result"
+Résolution => simplifier d'avantage la méthode précédente.
