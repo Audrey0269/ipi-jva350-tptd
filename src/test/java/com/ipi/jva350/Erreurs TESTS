@@ -37,3 +37,16 @@ Résolution => simplifier d'avantage la méthode précédente.
 4 - Use the opposite operator ("<=") instead.
 Résolution => modification de la méthode "estJourFerie" (model/entreprise)
 if (test != 0 && !(monEntier > 1)) {  ===>DEVIENT====>  if (test != 0 && (monEntier <= 1)) {
+
+
+5 - Replace this if-then-else statement by a single return statement.
+Résolution => Suppression de la ligne de code avec "throw new RuntimeException("La date ne se situe pas dans la plage");"
+dans la méthode : model/entreprise : estDansPlage.
+Résolution => Simplifier la méthode suivante :
+
+    public static boolean estDansPlage(LocalDate d, LocalDate debut, LocalDate fin) {
+        if (d.isAfter(debut) && d.isBefore(fin) || d.isEqual(debut) || d.isEqual(fin)) {
+            return true;
+        }
+        return false;
+    }

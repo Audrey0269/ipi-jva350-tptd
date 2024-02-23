@@ -144,13 +144,6 @@ public final class Entreprise {
     //Dans cette méthode le fait d'avoir un throw renvoie une erreur lors des tests lorsque le résultat est sur false (quand la date se situe en dehors de la tranche)
     //J'ai donc rajouté un "return false" qui permet de ne pas lever d'exception lors des tests (plutot que d'utiliser throw).
     public static boolean estDansPlage(LocalDate d, LocalDate debut, LocalDate fin) {
-        // à implémenter en TDD !
-        if (d.isAfter(debut) && d.isBefore(fin) || d.isEqual(debut) || d.isEqual(fin)) {
-            return true;
-        }
-        return false;
-        //throw new RuntimeException("La date ne se situe pas dans la plage");
+        return (d.isAfter(debut) && d.isBefore(fin)) || d.isEqual(debut) || d.isEqual(fin);
     }
-
-
 }
