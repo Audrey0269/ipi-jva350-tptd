@@ -53,7 +53,7 @@ public class SalarieAideADomicileService {
      * Utilisé par ajouteMois(). NB. ajouteMois() a déjà vérifié que le congé est dans l'année en cours.
      * @param moisEnCours du salarieAideADomicile
      * @param congesPayesAcquisAnneeNMoins1 du salarieAideADomicile
-     * @parma moisDebutContrat du salarieAideADomicile
+     * @param moisDebutContrat du salarieAideADomicile
      * @param premierJourDeConge demandé
      * @param dernierJourDeConge demandé
      * @return arrondi à l'entier le plus proche
@@ -94,8 +94,8 @@ public class SalarieAideADomicileService {
     /**
      * Calcule les jours de congés à décompter, et si valide (voir plus bas) les décompte au salarié
      * et le sauve en base de données
-     * @param salarieAideADomicile
-     * @param jourDebut
+     * @param salarieAideADomicile correspond au salarie
+     * @param jourDebut correspond au jour de début
      * @param jourFin peut être dans l'année suivante mais uniquement son premier jour
      * @throws SalarieException si pas de jour décompté, ou avant le mois en cours, ou dans l'année suivante
      * (hors l'exception du premier jour pour résoudre le cas d'un samedi), ou la nouvelle totalité
@@ -181,7 +181,7 @@ public class SalarieAideADomicileService {
     /**
      * Clôture l'année donnée. Il s'agit d'une année DE CONGES donc du 1er juin au 31 mai.
      * Passe les variables N à N-1
-     * @param salarieAideADomicile
+     * @param salarieAideADomicile correspond au salarie
      */
     void clotureAnnee(SalarieAideADomicile salarieAideADomicile) {
         salarieAideADomicile.setJoursTravaillesAnneeNMoins1(salarieAideADomicile.getJoursTravaillesAnneeN());
