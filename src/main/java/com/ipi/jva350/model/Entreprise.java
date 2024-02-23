@@ -130,13 +130,13 @@ public final class Entreprise {
     //Erreur dans la méthode :
     //Initialement :  : d.getMonthValue() > 5 ? LocalDate.of(d.getMonthValue(), 6, 1)
     //Cela renvoie une date comme celle la ; 0006/6/1 car prise en compte du mois plutot que de l'année
+    //Solution : remplacer le getMonthValue() par getYear().
     public static LocalDate getPremierJourAnneeDeConges(LocalDate d) {
         return d == null ? null
-                : d.getMonthValue() > 5 ? LocalDate.of(d.getMonthValue(), 6, 1)
+                : d.getMonthValue() > 5 ? LocalDate.of(d.getYear(), 6, 1)
                 : LocalDate.of(d.getYear() - 1, 6, 1);
     }
 
-    //"'2024-01-02', '2023-06-01'"
 
     public static boolean estJourFerie(LocalDate jour) {
         int monEntier = (int) Entreprise.joursFeries(jour).stream().filter(d ->

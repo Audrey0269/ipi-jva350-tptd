@@ -20,7 +20,7 @@ public class EntrepriseTest {
             "'2023-12-19', '2023-12-20', '2023-12-30', false",
             "'2023-12-20', '2023-12-20', '2023-12-30', true"
     })
-    void testEstDansPlageTrue(String dateATester, String dateDebut, String DateFin, Boolean excepted){
+    void testEstDansPlage(String dateATester, String dateDebut, String DateFin, Boolean excepted){
         // Given
         LocalDate jourATester = LocalDate.parse(dateATester);
         LocalDate jourDebut = LocalDate.parse(dateDebut);
@@ -51,9 +51,13 @@ public class EntrepriseTest {
 
 
     //__________TEST UNITAIRE PARAMETRE : Entreprise.proportionPondereeDuMois() __________
-    /*@ParameterizedTest
+    //J'ai effectué des tests en début d'année (mois de fevrier), milieu d'année (mois de juin) et fin d'année
+    //(mois de novembre) car la proportion pondéré est différente en fonction des mois de l'année (plus élevé en début et fin d'année).
+    @ParameterizedTest
     @CsvSource({
-            "'2024-01-02', 0.667",
+            "'2023-02-20', 0.9666666666666666",
+            "'2023-06-20', 0.23333333333333334",
+            "'2023-11-20', 0.7666666666666667"
     })
     void testProportionPondereeDuMois(String moisDuConge, double excepted){
         //Given
@@ -62,12 +66,13 @@ public class EntrepriseTest {
         double res = Entreprise.proportionPondereeDuMois(moisDuCongeATester);
         //Then
         Assertions.assertEquals(excepted, res);
-    }*/
+    }
 
     //__________TEST UNITAIRE PARAMETRE : Entreprise.getPremierJourAnneeDeConges() __________
     //Test si le mois est inférieur à 5 (Mai) alors la date du premier jour de congé sera Année-1, 6, 1 = 1er juin de l'année précédente = renvoie true.
     //Test si le mois est égale à 5 (Mai), idem à ci-dessus (car date > 5 et non >=5).
     //Test si le mois est supérieur à 5 (Mai)
+    //Erreur dans la méthode "getPremierJourAnneeDeConges" (modification dans Model/Entreprise.java)
     @ParameterizedTest
     @CsvSource({
             "'2024-04-02', '2023-06-01'",
