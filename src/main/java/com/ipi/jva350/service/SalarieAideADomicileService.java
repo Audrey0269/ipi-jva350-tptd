@@ -91,11 +91,10 @@ public class SalarieAideADomicileService {
         return Math.round(limiteCongesBd.doubleValue());
     }
 
-
     /**
      * Calcule les jours de congés à décompter, et si valide (voir plus bas) les décompte au salarié
      * et le sauve en base de données
-     * @param salarieAideADomicile TODO nom ?
+     * @param salarieAideADomicile
      * @param jourDebut
      * @param jourFin peut être dans l'année suivante mais uniquement son premier jour
      * @throws SalarieException si pas de jour décompté, ou avant le mois en cours, ou dans l'année suivante
