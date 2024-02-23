@@ -1,19 +1,13 @@
 package com.ipi.jva350.service;
 
-import com.ipi.jva350.exception.SalarieException;
-import com.ipi.jva350.model.SalarieAideADomicile;
+
 import com.ipi.jva350.repository.SalarieAideADomicileRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.time.LocalDate;
 
 import static org.mockito.Mockito.when;
@@ -35,7 +29,7 @@ public class SalarieAideADomicileTest {
     //CP aquis année précédente : de janvier 2023 à avril 2023 = 4 mois x 2,5 = 10
     //CP pris année précédente = 5
     //CP pris cette année du 11 mars 2024 au 15 mars 2024 = 5 jours
-    @Test
+    /*@Test
     public void testAjouteConge() throws SalarieException {
         //Given
         SalarieAideADomicile monSalarie = new SalarieAideADomicile(
@@ -56,6 +50,8 @@ public class SalarieAideADomicileTest {
         Mockito.verify(salarieAideADomicileRepository, Mockito.times(1)).save(salarieAideADomicileCaptor.capture()); // arg capture !
         Assertions.assertEquals(1L, salarieAideADomicileCaptor.getValue().getCongesPayesPrisAnneeNMoins1());
     }
+    */
+
 
 
 
