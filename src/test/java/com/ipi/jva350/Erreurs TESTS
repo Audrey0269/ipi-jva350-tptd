@@ -50,3 +50,7 @@ Résolution => Simplifier la méthode suivante :
         }
         return false;
     }
+
+6 - Make this "public static CONGES_PAYES_ACQUIS_PAR_MOIS" field final
+Résolution => modification en : " public static final float CONGES_PAYES_ACQUIS_PAR_MOIS = 2.5f;" (model/salarieAideADomicil)
+et suppression de l'ancienne : public static float CONGES_PAYES_ACQUIS_PAR_MOIS = 2.5f;
