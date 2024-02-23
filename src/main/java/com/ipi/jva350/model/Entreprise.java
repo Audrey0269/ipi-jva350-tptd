@@ -121,9 +121,10 @@ public final class Entreprise {
     //Cela renvoie une date comme celle la ; 0006/6/1 car prise en compte du mois plutot que de l'année
     //Solution : remplacer le getMonthValue() par getYear().
     public static LocalDate getPremierJourAnneeDeConges(LocalDate d) {
-        return d == null ? null
-                : d.getMonthValue() > 5 ? LocalDate.of(d.getYear(), 6, 1)
-                : LocalDate.of(d.getYear() - 1, 6, 1);
+        LocalDate firstDayOfJuneCurrentYear = LocalDate.of(d.getYear(), 6, 1);
+        LocalDate firstDayOfJunePreviousYear = LocalDate.of(d.getYear() - 1, 6, 1);
+        LocalDate result = d.getMonthValue() > 5 ? firstDayOfJuneCurrentYear : firstDayOfJunePreviousYear;
+        return result;
     }
 
     public static boolean estJourFerie(LocalDate jour) {

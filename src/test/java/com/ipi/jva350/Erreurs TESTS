@@ -23,4 +23,11 @@ Résolution => Simplifier la méthode suivante (model/Entreprise > bissextile) :
     }
 
 
+3 - Extract this nested ternary operation into an independent statement.
+Résolution =>
 
+
+
+return d == null ? null
+                : d.getMonthValue() > 5 ? LocalDate.of(d.getYear(), 6, 1)
+                : LocalDate.of(d.getYear() - 1, 6, 1);
