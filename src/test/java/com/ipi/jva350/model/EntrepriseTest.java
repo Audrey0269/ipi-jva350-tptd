@@ -14,7 +14,7 @@ public class EntrepriseTest {
     //Test d'une date qui ne se situe pas entre la date de début et date de fin donc renvoie false.
     //Test d'une date qui correspond à la date de début, renvoie true.
     @ParameterizedTest
-    //Date à tester, date début, date fin
+    //paramètres : date à tester, date début, date fin
     @CsvSource({
             "'2023-12-21', '2023-12-20', '2023-12-30', true",
             "'2023-12-19', '2023-12-20', '2023-12-30', false",
@@ -51,8 +51,8 @@ public class EntrepriseTest {
 
 
     //__________TEST UNITAIRE PARAMETRE : Entreprise.proportionPondereeDuMois() __________
-    //J'ai effectué des tests en début d'année (mois de fevrier), milieu d'année (mois de juin) et fin d'année
-    //(mois de novembre) car la proportion pondéré est différente en fonction des mois de l'année (plus élevé en début et fin d'année).
+    //Tests en début d'année (fevrier), milieu d'année (juin) et fin d'année (novembre),
+    //car la proportion pondéré est différente en fonction des mois de l'année (plus élevé en début et fin d'année).
     @ParameterizedTest
     @CsvSource({
             "'2023-02-20', 0.9666666666666666",

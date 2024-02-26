@@ -120,6 +120,7 @@ public final class Entreprise {
     //Initialement :  : d.getMonthValue() > 5 ? LocalDate.of(d.getMonthValue(), 6, 1)
     //Cela renvoie une date comme celle-ci ; 0006/6/1 car prise en compte du mois plutot que de l'année
     //Solution : remplacer le getMonthValue() par getYear().
+    //Puis simplification de la méthode initiale en une seule ligne de code
     public static LocalDate getPremierJourAnneeDeConges(LocalDate d) {
         return d.getMonthValue() > 5 ? LocalDate.of(d.getYear(), 6, 1) : LocalDate.of(d.getYear() - 1, 6, 1);
     }
@@ -141,8 +142,9 @@ public final class Entreprise {
      * @param fin date de fin de la plage
      * @return
      */
-    //Dans cette méthode le fait d'avoir un throw renvoie une erreur lors des tests lorsque le résultat est sur false (quand la date se situe en dehors de la tranche)
+    //Dans la méthode initiale, le fait d'avoir un throw renvoie une erreur lors des tests lorsque le résultat est sur false (quand la date se situe en dehors de la tranche)
     //J'ai donc rajouté un "return false" qui permet de ne pas lever d'exception lors des tests (plutot que d'utiliser throw).
+    //Puis j'ai simlifier la méthode en une seule ligne.
     public static boolean estDansPlage(LocalDate d, LocalDate debut, LocalDate fin) {
         return (d.isAfter(debut) && d.isBefore(fin)) || d.isEqual(debut) || d.isEqual(fin);
     }
