@@ -21,8 +21,6 @@ public class SalarieAideADomicileService {
     private SalarieAideADomicileRepository salarieAideADomicileRepository;
 
     public SalarieAideADomicileService() {
-        //Méthode vide
-        throw new UnsupportedOperationException("This method is not yet implemented");
     }
 
     /**
