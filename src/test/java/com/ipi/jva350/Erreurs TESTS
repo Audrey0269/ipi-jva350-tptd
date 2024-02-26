@@ -87,8 +87,9 @@ Ligne 78 :
 12 - Use isEmpty() to check whether the collection is empty or not (SalarieAideADService : méthode ajouteConge)
 Résolution => if (joursDecomptes.size()) {   ===REMPLACER PAR===> if (joursDecomptes.isEmpty()) {
 
-
+13 - Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.
+Résolution => Dans salarieAideADomicileService, méthode SalarieAideADomicile (ligne 23) vide. J'ai ajouté un commentaire et un throw, mais idéalement si elle ne sert à rien il faudrait la supprimer.
 
 _______________________________________________________________
-===> ACTUELLEMENT A 21 Code Smells au lieu de 37 initialement !
+===> ACTUELLEMENT A 20 Code Smells au lieu de 37 initialement !
 _______________________________________________________________
